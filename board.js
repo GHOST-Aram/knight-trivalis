@@ -61,7 +61,7 @@ export class Board {
         return adjacentCoordinates.filter(
             coordinate => {
                 return (coordinate[0] >= 0 && coordinate[0] <= 7) && (coordinate[1] >= 0 && coordinate[1] <= 7)
-                        && this.board[coordinate[0]][coordinate][1].visited === false
+                        && this.board[coordinate[0]][coordinate[1]].visited === false
             }
             )
 
@@ -83,9 +83,9 @@ export class Board {
         // Enqueue first coordinate
         queue.enqueue(startCoordinate)
         
-        while(queue.length > 0){
+        while(coordinates.length > 0){
             //Dequeue 
-            currentCoordinate = queue.dequeue()
+            let currentCoordinate = queue.dequeue()
 
             //Check if item is target
             if(this.board[currentCoordinate[0]][currentCoordinate[1]].isTarget === true){
