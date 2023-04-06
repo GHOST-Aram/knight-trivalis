@@ -18,3 +18,4 @@ for(let rank = 0; rank < 8; rank ++){
     //Append to board squares
     boardSquares.push(row)
 }
+

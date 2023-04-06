@@ -40,7 +40,7 @@ export class Board {
      * Method returns an array of 8 possible coordinates of knight moves
      * Throws error if array Index is less than 0 or greater than 7
      */
-    getAdjacentCoordinates(coordinate){
+    #getAdjacentCoordinates(coordinate){
         if(coordinate[0] > 7 || coordinate[0] < 0 || coordinate[1] > 7 || coordinate[1]< 0)
             throw `ArrayIndexOutOfBounds: Index ${(coordinate[0] < 0 ||coordinate[0] > 7) ? coordinate[0] : coordinate[1]}`
 
@@ -92,7 +92,7 @@ export class Board {
             //If current is not target
             else{
                 // Get coordinates of adjacent nodes
-                const adjacentCoordinates = this.getAdjacentCoordinates(currentCoordinate)
+                const adjacentCoordinates = this.#getAdjacentCoordinates(currentCoordinate)
 
                 //Scan nodes at those indices/coordinates
                 adjacentCoordinates.forEach(
@@ -109,6 +109,25 @@ export class Board {
                 )
             }
         }
+    }
+    /**
+     * 
+     * @param {*} startCordinate 
+     * @param {*} targetCoordinate 
+     * Collectively calls all methods that process finding paths and returns path
+     */
+    knightMoves(startCordinate, targetCoordinate){
+        //Place Knight on board
+        this.placePiece('Knight', startCordinate)
+
+        //Mark target squares
+        this.markTarget(targetCoordinate)
+
+        //Search target then find path
+        if(this.goToTarget(startCordinate))
+            return this.backTrackPath(targetCoordinate)
+        else
+            return null  
     }
     /**
      * 
