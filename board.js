@@ -57,6 +57,18 @@ export class Board {
         //Filter out Indices that are out of bounds
         return adjacentCoordinates.filter(coordinate => {return (coordinate[0] >= 0 && coordinate[0] <= 7) && (coordinate[1] >= 0 && coordinate[1] <= 7)})
 
+    }/**
+     * 
+     * @param {*} startCoordinate 
+     * Start Coordinate represents the intial position of knight on the board
+     * Traverses all possible knight moves using BFS until it finds target square
+     * Target square is labbled with istargetProperty set to true
+     * This Traversal visits every square only once
+     * Once a square is visited, it is marked as visited and not to be visited again
+     * This method uses a queue to track squares in order
+     */
+    goToTarget(startCoordinate){
+
     }
     /**
      * 
