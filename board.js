@@ -42,16 +42,18 @@ export class Board {
      */
     getAdjacentCoordinates(coordinate){
         if(coordinate[0] > 7 || coordinate[0] < 0 || coordinate[1] > 7 || coordinate[1]< 0)
-            throw `ArrayIndexOutOfBounds: Index ${(coordinate[0] < 0 ||coordinate[0] > 7) ? coordinate[0] : coordinate[1]}` 
+            throw `ArrayIndexOutOfBounds: Index ${(coordinate[0] < 0 ||coordinate[0] > 7) ? coordinate[0] : coordinate[1]}`
+
+        //Put coordinates in array 
         const adjacentCoordinates =  [
-            [(coordinate[0] + 2), (coordinate[1] - 1)],
-            [(coordinate[0] + 2), (coordinate[1] + 1)],
-            [(coordinate[0] + 1), (coordinate[1] - 2)],
-            [(coordinate[0] - 1), (coordinate[1] - 2)],
-            [(coordinate[0] - 2), (coordinate[1] - 1)],
-            [(coordinate[0] - 2), (coordinate[1] + 1)],
-            [(coordinate[0] - 1), (coordinate[1] + 2)],
-            [(coordinate[0] + 1), (coordinate[1] + 2)]
+            [(coordinate[0] + 2), (coordinate[1] - 1)],//square to the top-left diagonal of the upper-square
+            [(coordinate[0] + 2), (coordinate[1] + 1)],//square to the top-right diagonal of the upper-square
+            [(coordinate[0] + 1), (coordinate[1] - 2)],//square to the top-left diagonal of the left-square
+            [(coordinate[0] - 1), (coordinate[1] - 2)],//square to the bottom-left diagonal of the left-square
+            [(coordinate[0] - 2), (coordinate[1] - 1)],//square to the bottom-left diagonal of the bottom-square
+            [(coordinate[0] - 2), (coordinate[1] + 1)],//Square to the bottom-right diagonal of the bottom-square
+            [(coordinate[0] - 1), (coordinate[1] + 2)],//Square to the bottom-right diagonal of the right-square
+            [(coordinate[0] + 1), (coordinate[1] + 2)] //Square to the top-right diagonal of the right-square
 
         ]
 
