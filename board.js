@@ -76,14 +76,16 @@ export class Board {
      * This method uses a queue to track squares in order
      */
     goToTarget(startCoordinate){
-        const coordinates = new Queue()
+        const queue = new Queue()
+
+        const coordinates = queue.collection
 
         // Enqueue first coordinate
-        coordinates.enqueue(startCoordinate)
+        queue.enqueue(startCoordinate)
         
-        while(coordinates.length > 0){
+        while(queue.length > 0){
             //Dequeue 
-            currentCoordinate = coordinates.dequeue()
+            currentCoordinate = queue.dequeue()
 
             //Check if item is target
             if(this.board[currentCoordinate[0]][currentCoordinate[1]].isTarget === true){
@@ -104,7 +106,7 @@ export class Board {
                         this.board[coordinate[0]][coordinate[1]].visited = true
 
                         //Enqueue coordinate
-                        coordinates.enqueue(coordinate)
+                        queue.enqueue(coordinate)
                     }
                 )
             }

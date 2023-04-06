@@ -11,9 +11,9 @@ export class Queue {
         this.length = this.collection.length
     }
 
-    //Append an item at the end of the collection
+    //Prepend an item at the end of the collection
     enqueue(item){
-        this.collection.unshift(item)
+        this.collection.push(item)
     }
 
     // Get item from the front of the collection
