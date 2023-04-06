@@ -1,3 +1,4 @@
+import {Queue} from './queue.js'
 export class Board {
     /**
      * Board class instanciates an object with an 8 by 8 Multidimensional array representing
@@ -68,7 +69,39 @@ export class Board {
      * This method uses a queue to track squares in order
      */
     goToTarget(startCoordinate){
+        const coordinates = new Queue()
 
+        // Enqueue first coordinate
+        coordinates.enqueue(startCoordinate)
+        
+        while(coordinates.length > 0){
+            //Dequeue 
+            currentCoordinate = coordinates.dequeue()
+
+            //Check if item is target
+            if(this.board[currentCoordinate[0]][currentCoordinate[1]].isTarget === true){
+                return true
+            }
+            //If current is not target
+            else{
+                // Get coordinates of adjacent nodes
+                const adjacentCoordinates = this.getAdjacentCoordinates(currentCoordinate)
+
+                //Scan nodes at those indices/coordinates
+                adjacentCoordinates.forEach(
+                    coordinate =>{
+                        //Set parent
+                        this.board[coordinate[0]][coordinate[1]].parent = this.board[currentCoordinate[0]][currentCoordinate[1]]
+                        
+                        //Mark as visited 
+                        this.board[coordinate[0]][coordinate[1]].visited = true
+
+                        //Enqueue coordinate
+                        coordinates.enqueue(coordinate)
+                    }
+                )
+            }
+        }
     }
     /**
      * 

@@ -8,6 +8,7 @@ export class Queue {
 
     constructor(){
         this.collection = []
+        this.length = this.collection.length
     }
 
     //Append an item at the end of the collection

@@ -1,0 +1,21 @@
+{
+  "name": "knight-trivalis",
+  "version": "1.0.0",
+  "description": "Searching for Shortest path from a between coordinates using BFS",
+  "main": "board.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GHOST-Aram/knight-trivalis.git"
+  },
+  "keywords": [],
+  "author": "ghost-aram <owinoojala254@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GHOST-Aram/knight-trivalis/issues"
+  },
+  "homepage": "https://github.com/GHOST-Aram/knight-trivalis#readme"
+}
