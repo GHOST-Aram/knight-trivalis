@@ -55,8 +55,13 @@ export class Board {
 
         ]
 
-        //Filter out Indices that are out of bounds
-        return adjacentCoordinates.filter(coordinate => {return (coordinate[0] >= 0 && coordinate[0] <= 7) && (coordinate[1] >= 0 && coordinate[1] <= 7)})
+        //Filter out Indices that are out of bounds and visited nodes
+        return adjacentCoordinates.filter(
+            coordinate => {
+                return (coordinate[0] >= 0 && coordinate[0] <= 7) && (coordinate[1] >= 0 && coordinate[1] <= 7)
+                        && this.board[coordinate[0]][coordinate][1].visited === false
+            }
+            )
 
     }/**
      * 
