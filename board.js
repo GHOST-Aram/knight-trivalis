@@ -27,9 +27,6 @@ export class Board {
             current = current.parent
         }while(current !== null)
 
-        // Stack starting square cordinate infront of the array
-        coordinates.unshift(coordinate)
-
         return coordinates
     }
     /**
