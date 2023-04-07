@@ -22,14 +22,14 @@ for(let rank = 0; rank < 8; rank ++){
 // const path = board.knightMoves(,
  //Place Knight on board
  let path = []
- board.placePiece('Knight', [0,0])
+ board.placePiece('Knight', [3, 3])
 
  //Mark target squares
- board.markTarget([1,2])
+ board.markTarget([0, 0])
 
  //Search target then find path
- if(board.goToTarget([0,0]))
-    path =  board.backTrackPath([1,2])
+ if(board.goToTarget([3, 3]))
+    path =  board.backTrackPath([0, 0])
   
 
 console.log(path)
