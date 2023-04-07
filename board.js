@@ -87,6 +87,9 @@ export class Board {
             //Dequeue 
             let currentCoordinate = queue.dequeue()
 
+            //Mark start as visisted
+            this.board[currentCoordinate[0]][currentCoordinate[1]].visited = true
+
             //Check if item is target
             if(this.board[currentCoordinate[0]][currentCoordinate[1]].isTarget === true){
                 return true
